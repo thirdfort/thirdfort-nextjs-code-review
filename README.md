@@ -27,3 +27,11 @@ Run the storybook server with:
 ```bash
 yarn storybook
 ```
+
+## Tests
+
+Run tests with:
+
+```bash
+yarn test
+```
