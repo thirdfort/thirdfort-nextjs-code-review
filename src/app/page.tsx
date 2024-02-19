@@ -1,44 +1,63 @@
 "use client";
-import Box from "@mui/joy/Box";
-import Stack from "@mui/joy/Stack";
-import Typography from "@mui/joy/Typography";
-import { Button } from "./components/Button";
+import React from "react";
+import { css } from "@emotion/react";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
-    <Stack
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        width: "50%",
-        margin: "0 auto",
-        textAlign: "center",
-      }}
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+      `}
     >
-      <Typography level="h1" sx={{ mb: 4 }}>
+      <div
+        css={css`
+          margin-bottom: 1rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+        `}
+      >
         Contact Details
-      </Typography>
-      <Box
-        sx={{
-          background: "var(--joy-palette-background-level1)",
-          width: "100%",
-          minHeight: "40px",
-          mb: 4,
-          boxShadow: "md",
-          p: 2,
-        }}
+      </div>
+      <div
+        css={css`
+          background: var(--background-color-light);
+          width: 100%;
+          min-height: 40px;
+          margin-bottom: 1.5rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          padding: 2;
+        `}
       >
         <pre>TODO: Address Form</pre>
-      </Box>
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
+      </div>
+      <div
+        css={css`
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: flex-end;
+        `}
+      >
         <Button
           primary
-          sx={{ width: { xs: "100%", sm: "auto" } }}
+          css={css`
+            width: 100%;
+            @media (min-width: 768px) {
+              width: auto;
+            }
+          `}
           onClick={() => alert("submit")}
         >
           Submit
         </Button>
-      </Box>
-    </Stack>
+      </div>
+    </div>
   );
 }

@@ -1,42 +1,34 @@
 import React from "react";
-import JoyButton, { ButtonProps as JoyButtonProps } from "@mui/joy/Button";
+import styled from "@emotion/styled";
 
-type ExcludedButtonProps =
-  | "color"
-  | "component"
-  | "startDecorator"
-  | "endDecorator"
-  | "fullWidth"
-  | "loadingIndicator"
-  | "loadingPosition"
-  | "variant";
+type StyledButtonProps = {
+  primary?: boolean;
+  size?: "sm" | "md" | "lg";
+};
 
-type ExcludedButtonSlotProps =
-  | "startDecorator"
-  | "endDecorator"
-  | "loadingIndicatorCenter";
+const StyledButton = styled.button<StyledButtonProps>`
+  background-color: ${(props) =>
+    props.primary ? "var(--color-primary)" : "var(--color-neutral)"};
+  color: ${(props) =>
+    props.primary ? "var(--color-white)" : "var(--color-black)"};
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
 
-type JoyButtonSlotProps = JoyButtonProps["slotProps"];
-type SlotProps = Omit<NonNullable<JoyButtonSlotProps>, ExcludedButtonSlotProps>;
-
-export type ButtonProps = React.PropsWithChildren<
-  Omit<JoyButtonProps, ExcludedButtonProps> &
-    Partial<{
-      primary: boolean;
-      error: boolean;
-      slotProps: SlotProps;
-    }>
->;
-
-const getColor = (
-  props: Pick<ButtonProps, "primary">
-): JoyButtonProps["color"] => {
-  if (props.primary) {
-    return "primary";
+  &:hover {
+    background-color: var(--color-primary-light);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 8px 25px rgba(0, 0, 0, 0.22);
   }
-  return "neutral";
-};
+`;
 
-export const Button = ({ primary, error, key, ...props }: ButtonProps) => {
-  return <JoyButton {...props} color={getColor({ primary })} />;
-};
+export type ButtonProps = React.ComponentProps<typeof StyledButton>;
+
+const Button = ({ children, ...props }: ButtonProps) => (
+  <StyledButton {...props}>{children}</StyledButton>
+);
+
+export default Button;
