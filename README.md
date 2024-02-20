@@ -35,3 +35,7 @@ Run tests with:
 ```bash
 yarn test
 ```
+
+## What to do?
+
+Review the PR in the interview by talking through the changes. Do not amend the PR in GitHub.
