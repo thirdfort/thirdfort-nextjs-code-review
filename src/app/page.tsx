@@ -35,7 +35,7 @@ export default function Home() {
           padding: 2;
         `}
       >
-        <pre>TODO: Address Form</pre>
+        <AddressForm />
       </div>
       <div
         css={css`

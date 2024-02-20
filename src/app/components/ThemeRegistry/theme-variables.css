@@ -4,7 +4,7 @@
   --background-color-dark: #e9ecef;
   --background-color-card: rgba(250, 224, 66, 0.2);
   --background-color-card-title: rgba(250, 224, 66, 0.3);
-  --border-color-card: rgba(250, 224, 66, 0.45);
+  --border-color: rgb(180, 180, 200);
 
   --shadow-light: 0px 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0px 6px 12px rgba(0, 0, 0, 0.15);
@@ -23,6 +23,7 @@
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray: #6c757d;
+  --text-color-secondary: #6c757d;
 
   --color-success: #28a745;
   --color-danger: #dc3545;

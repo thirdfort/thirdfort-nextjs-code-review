@@ -1,65 +1,113 @@
 import React from "react";
-import Box from "@mui/joy/Box";
-import FormControl from "@mui/joy/FormControl";
-import FormLabel from "@mui/joy/FormLabel";
-import FormHelperText from "@mui/joy/FormHelperText";
-import Input from "@mui/joy/Input";
+import { css } from "@emotion/react";
 
 export default function AddressForm() {
   return (
-    <Box
-      component="form"
-      sx={{
-        "& .MuiInput-root": { my: 2 },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <FormControl>
-          <FormLabel sx={{ color: "black" }}>Name</FormLabel>
-          <FormHelperText>Please enter a name</FormHelperText>
-          <Input
+    <form noValidate autoComplete="off">
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1.5rem;
+          > div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+          }
+          label,
+          .helper-text {
+            display: block;
+          }
+          .helper-text {
+            font-size: 0.8rem;
+            color: var(--text-color-secondary);
+            margin-top: 0.5rem;
+          }
+          input {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+          }
+        `}
+      >
+        <div>
+          <label
+            css={css`
+              color: black;
+            `}
+          >
+            Name
+          </label>
+          <span className="helper-text">Please enter a name</span>
+          <input
             required
             name="name"
             defaultValue=""
             placeholder="Enter a name"
-            fullWidth
+            type="text"
           />
-        </FormControl>
-        <FormControl>
-          <FormLabel sx={{ color: "#444" }}>Line 1</FormLabel>
-          <Input
+        </div>
+        <div>
+          <label
+            css={css`
+              color: #555;
+            `}
+          >
+            Line 1
+          </label>
+          <input
             required
             name="line1"
             defaultValue=""
             placeholder="Enter line 1"
-            fullWidth
-            sx={{ ml: 1 }}
+            type="text"
+            css={css`
+              margin-right: 1.5rem;
+            `}
           />
-        </FormControl>
-        <FormControl>
-          <FormLabel sx={{ color: "#000" }}>Line 2</FormLabel>
-          <Input
+        </div>
+        <div>
+          <label
+            css={css`
+              color: #000;
+            `}
+          >
+            Line 2
+          </label>
+          <input
             name="line2"
             defaultValue=""
             placeholder="Enter line 2"
-            fullWidth
-            sx={{ ml: 1 }}
+            type="text"
+            css={css`
+              margin-left: 0.5rem;
+            `}
           />
-        </FormControl>
-        <FormControl>
-          <FormLabel sx={{ color: "rgba(0, 0, 0, 0.9)" }}>Postcode</FormLabel>
-          <Input
+        </div>
+        <div>
+          <label
+            css={css`
+              color: "rgba(0, 0, 0, 0.9)";
+            `}
+          >
+            Postcode
+          </label>
+          <input
             required
             name="line1"
             defaultValue=""
             placeholder="Enter postcode"
-            fullWidth
-            sx={{ ml: 1 }}
+            type="text"
+            css={css`
+              margin-left: 0.5rem;
+            `}
           />
-        </FormControl>
+        </div>
       </div>
-    </Box>
+    </form>
   );
 }
