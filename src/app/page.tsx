@@ -2,6 +2,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import Button from "./components/Button";
+import AddressForm from "./components/AddressForm";
 
 export default function Home() {
   return (
@@ -34,7 +35,7 @@ export default function Home() {
           padding: 2;
         `}
       >
-        <pre>TODO: Address Form</pre>
+        <AddressForm />
       </div>
       <div
         css={css`
